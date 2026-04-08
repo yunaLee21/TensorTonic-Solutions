@@ -8,7 +8,7 @@ def pad_sequences(seqs, pad_value=0, max_len=None):
     """
     # Your code here
     N = len(seqs)
-    L = max_len if (max_len != None) else max(len(seq) for seq in seqs) or 0
+    L = max_len if (max_len != None) else max((len(seq) for seq in seqs), default=0)
 
     pad_seq = np.zeros((N, L))
 
