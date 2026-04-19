@@ -15,7 +15,7 @@ def entropy_node(y):
     counts = np.array(counts)
     n = len(y)
 
-    p = np.array(counts / n)
+    p = counts / n
     # print(p) #[0.28571429 0.42857143 0.14285714 0.14285714]
 
     result = - (p * np.log2(p))
