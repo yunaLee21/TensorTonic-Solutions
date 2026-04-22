@@ -1,21 +1,27 @@
 import numpy as np
 
+def is_valid_matrix(matrix):
+    # handle empty matrix
+    if (len(matrix) == 0):
+        return False
+
+    # only one dim
+    if (not isinstance(matrix[0], list)):
+        return False
+    # handle different sizes across elements
+    n = len(matrix[0])
+    for i in range(len(matrix)):
+        if (len(matrix[i]) != n):
+            return False
+    return True
+
 def calculate_eigenvalues(matrix):
     """
     Calculate eigenvalues of a square matrix.
     """
     # Write code here
-    # handle empty matrix
-    if (len(matrix) == 0):
+    if (not is_valid_matrix(matrix)):
         return None
-
-    # handle different sizes across elements
-    if (not isinstance(matrix[0], list)):
-        return None
-    n = len(matrix[0])
-    for i in range(len(matrix)):
-        if (len(matrix[i]) != n):
-            return None
     
     # handle non-square
     A = np.asarray(matrix)
